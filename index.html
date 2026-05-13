@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="lib/p5.min.js"></script>
+    <script src="lib/p5.dom.js"></script>
+
+    <!-- Core utilities (order matters for dependencies) -->
+    <script src="undoRedo.js"></script>    <!-- Must load first - provides saveState() -->
+    <script src="stateSaving.js"></script> <!-- Uses localStorage for save/load -->
+    <script src="toolbox.js"></script>     <!-- Manages tool selection -->
+    <script src="colourPalette.js"></script> <!-- Color selection UI -->
+    <script src="helperFunctions.js"></script> <!-- Shared utilities -->
+
+    <!-- Drawing tools -->
+    <script src="freehandTool.js"></script>
+    <script src="lineToTool.js"></script>
+    <script src="sprayCanTool.js"></script>
+    <script src="mirrorDrawTool.js"></script>
+    <script src="stampTool.js"></script>
+    <script src="imageApiTool.js"></script>
+    <!-- <script src="shapeTool.js"></script> -->
+    <script src="eraserTool.js"></script>
+    
+    <!-- Main sketch and UI -->
+    <script src="sketch.js"></script>
+    <script src="tooltip.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+  	<div class="wrapper">
+      <div class="box header">
+        <span>DoodleLab.com</span>
+        <button id="undoButton">
+          <img src="assets/undo.png" alt="Undo">
+          <span class="tooltip">Ctrl + Z</span>
+        </button>
+        <button id="redoButton">
+          <img src="assets/redo.png" alt="Redo">
+          <span class="tooltip">Ctrl + Shift + Z</span>
+        </button>
+        <button id="clearButton">Clear</button>
+      </div>
+      <div id="colorSlider"></div>
+      <div id="colorPresets"></div>
+      <div class="box" id="sidebar"></div>
+      <div id="toolPanel">
+        <div id="toolPanelContent"></div>
+      </div>
+      <button id="collapseBtn">&lt;</button>
+      <div id="content"></div>
+	</div>
+  </body>
+</html>
